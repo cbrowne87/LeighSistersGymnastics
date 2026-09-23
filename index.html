@@ -198,7 +198,6 @@
 
                 <div class="pledge-form">
                     <h3>Make a Pledge</h3>
-                    <!-- Replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL with your deployed Google Apps Script Web App URL. -->
                     <form id="pledgeForm" action="https://script.google.com/macros/s/AKfycbw3bPtGqBhR6m49Rxh-Srcr-FnUeU1w1WbZYCoPahQH0ca3NilD9psvcTH2vDWXZO008g/exec" method="POST" target="pledge-response-frame">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -247,8 +246,10 @@
         window.addEventListener("message", function (event) {
             if (!event.data || event.data.type !== "pledgeSubmission") return;
 
+            clearTimeout(pledgeTimeout);
+
             if (event.data.status === "success") {
-                pledgeStatus.textContent = "Thank you for your pledge! Pledges can be sent to Curlene Browne - Republic Bank Chequing Account - 1601 3259 0701.";
+                pledgeStatus.textContent = "Thank you! Your pledge has been recorded. Pledges can be sent to Curlene Browne - Republic Bank Chequing Account - 1601 3259 0701.";
                 pledgeStatus.style.color = "#2d6a4f";
                 pledgeForm.reset();
             } else {
@@ -261,7 +262,7 @@
         });
 
         pledgeForm.addEventListener("submit", function () {
-            if (pledgeForm.action.includes("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL")) {
+            if (pledgeForm.action.includes("https://script.google.com/macros/s/AKfycbw3bPtGqBhR6m49Rxh-Srcr-FnUeU1w1WbZYCoPahQH0ca3NilD9psvcTH2vDWXZO008g/exec")) {
                 pledgeStatus.textContent = "The pledge form still needs the Google Apps Script web-app URL to be connected.";
                 pledgeStatus.style.color = "#b42318";
                 return;
