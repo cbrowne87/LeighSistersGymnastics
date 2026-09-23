@@ -96,7 +96,40 @@
             .timer-divider { font-size: .9rem; }
             section { padding: 70px 18px; }
         }
-    </style>
+    
+    .pledge-status {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border: 1px solid transparent;
+    }
+
+    .pledge-status.show {
+      display: block;
+    }
+
+    .pledge-status.submitting {
+      background: #fff5f5;
+      color: #7a1d26;
+      border-color: #efc3c6;
+    }
+
+    .pledge-status.success {
+      background: #eaf6ef;
+      color: #2d6a4f;
+      border-color: #b8dec6;
+    }
+
+    .pledge-status.error {
+      background: #fff0f0;
+      color: #b42318;
+      border-color: #e7b5b5;
+    }
+
+  </style>
 </head>
 <body>
 
@@ -237,29 +270,75 @@
         const pledgeForm = document.getElementById("pledgeForm");
         const pledgeStatus = document.getElementById("pledgeStatus");
         const submitPledgeButton = document.getElementById("submitPledgeButton");
+        const pledgeResponseFrame = document.getElementById("pledge-response-frame");
+
+        let pledgeTimeout;
+        let isSubmittingPledge = false;
+        let pledgeCompleted = false;
+
+        function showPledgeStatus(message, type) {
+            pledgeStatus.textContent = message;
+            pledgeStatus.className = "pledge-status show " + type;
+        }
+
+        function finishPledgeSubmission() {
+            if (!isSubmittingPledge || pledgeCompleted) return;
+
+            pledgeCompleted = true;
+            clearTimeout(pledgeTimeout);
+            showPledgeStatus(
+                "Thank you! Your pledge has been submitted successfully. We’ll follow up with you soon.",
+                "success"
+            );
+
+            pledgeForm.reset();
+            submitPledgeButton.disabled = false;
+            submitPledgeButton.textContent = "Submit My Pledge";
+            isSubmittingPledge = false;
+        }
+
+        function failPledgeSubmission() {
+            if (!isSubmittingPledge || pledgeCompleted) return;
+
+            pledgeCompleted = true;
+            clearTimeout(pledgeTimeout);
+            showPledgeStatus(
+                "We couldn't confirm the submission. Please try again or contact the Leigh Sisters directly.",
+                "error"
+            );
+
+            submitPledgeButton.disabled = false;
+            submitPledgeButton.textContent = "Submit My Pledge";
+            isSubmittingPledge = false;
+        }
 
         window.addEventListener("message", function (event) {
             if (!event.data || event.data.type !== "pledgeSubmission") return;
 
-            clearTimeout(pledgeTimeout);
-
             if (event.data.status === "success") {
-                pledgeStatus.textContent = "Thank you! Your pledge has been recorded. Pledges can be sent to Curlene Browne - Republic Bank Chequing Account - 1601 3259 0701.";
-                pledgeStatus.style.color = "#2d6a4f";
-                pledgeForm.reset();
+                finishPledgeSubmission();
             } else {
-                pledgeStatus.textContent = "We couldn't record your pledge. Please try again or contact the Leigh Sisters directly.";
-                pledgeStatus.style.color = "#b42318";
+                failPledgeSubmission();
             }
-
-            submitPledgeButton.disabled = false;
-            submitPledgeButton.textContent = "Submit My Pledge";
         });
 
+        pledgeResponseFrame.addEventListener("load", function () {
+            if (!isSubmittingPledge || pledgeCompleted) return;
+            finishPledgeSubmission();
+        });
+
+        pledgeForm.addEventListener("submit", function () {
+            isSubmittingPledge = true;
+            pledgeCompleted = false;
             submitPledgeButton.disabled = true;
             submitPledgeButton.textContent = "Submitting...";
-            pledgeStatus.textContent = "Submitting your pledge...";
-            pledgeStatus.style.color = "#7a1d26";
+            showPledgeStatus("Submitting your pledge...", "submitting");
+
+            pledgeTimeout = setTimeout(function () {
+                if (isSubmittingPledge && !pledgeCompleted) {
+                    failPledgeSubmission();
+                }
+            }, 10000);
         });
 
         const targetDate = new Date("November 12, 2026 00:00:00").getTime();
