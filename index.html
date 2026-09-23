@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Leigh Sisters | Gymnastics</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: "Trebuchet MS", "Segoe UI", sans-serif; background: #fbf8f7; color: #181818; line-height: 1.6; }
+        .countdown-bar { position: relative; min-height: 72px; background: #fff; color: #181818; display: flex; align-items: center; justify-content: center; padding: 10px 190px 10px 20px; border-bottom: 3px solid #c91f2c; }
+        .countdown-content { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .countdown-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #666; }
+        .timer { display: flex; align-items: center; gap: 7px; }
+        .time-box { min-width: 48px; text-align: center; }
+        .time-number { display: block; color: #181818; font-size: 1.35rem; line-height: 1; font-weight: 800; }
+        .time-label { display: block; color: #888; font-size: .5rem; margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .timer-divider { color: #c91f2c; font-size: 1.15rem; font-weight: bold; }
+        .donate-button { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); background: #c91f2c; color: #fff; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 11px 24px; border-radius: 30px; box-shadow: 0 5px 18px rgba(0,0,0,.25); transition: all .25s ease; z-index: 10; }
+        .donate-button:hover { background: #fff; color: #c91f2c; transform: translateY(-50%) translateY(-2px); }
+        header { position: relative; overflow: hidden; min-height: 590px; display: flex; align-items: center; background: radial-gradient(circle at 75% 30%, rgba(201,31,44,.18), transparent 34%), linear-gradient(135deg, #fffaf8 0%, #f6ecea 52%, #eee3e0 100%); color: #181818; padding: 80px 20px 90px; text-align: left; }
+        header::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,250,248,.96) 0%, rgba(255,250,248,.88) 42%, rgba(255,250,248,.20) 78%, rgba(255,250,248,.05) 100%); z-index: 0; }
+        .header-athletes { position: absolute; right: 2%; bottom: -2px; width: min(58vw, 760px); max-height: 94%; object-fit: contain; object-position: bottom right; z-index: 1; filter: drop-shadow(0 22px 28px rgba(70,30,30,.12)); }
+        .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 1150px; margin: auto; }
+        .brand-signature { font-family: "Brush Script MT", "Segoe Script", cursive; font-size: clamp(2rem, 3.8vw, 3.4rem); font-weight: 500; line-height: 1; color: #c91f2c; margin-bottom: 34px; transform: rotate(-3deg); transform-origin: left center; }
+        .eyebrow { color: #c91f2c; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+        header h1 { max-width: 650px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 5.5vw, 5rem); line-height: .98; font-weight: 500; letter-spacing: -.035em; margin-bottom: 24px; }
+        header h1 span { color: #c91f2c; font-style: italic; }
+        .hero-text { max-width: 650px; margin: 0 0 30px; font-size: 1rem; line-height: 1.8; color: #555; }
+        .hero-links { display: flex; justify-content: flex-start; gap: 12px; flex-wrap: wrap; }
+        .hero-link { display: inline-block; padding: 12px 24px; border: 1px solid #b9aaa7; border-radius: 30px; color: #3c3432; text-decoration: none; text-transform: uppercase; font-size: .75rem; font-weight: 800; letter-spacing: 1px; transition: all .25s ease; }
+        .hero-link:hover { background: #181818; color: #fff; border-color: #181818; }
+        .hero-link.primary { background: #c91f2c; border-color: #c91f2c; }
+        .hero-link.primary:hover { background: #181818; color: #fff; border-color: #181818; }
+        section { padding: 90px 20px; }
+        .section-inner { max-width: 1150px; margin: auto; }
+        .section-heading { text-align: center; margin-bottom: 55px; }
+        .section-heading .small-title { color: #c91f2c; text-transform: uppercase; font-weight: 800; letter-spacing: 3px; font-size: .72rem; }
+        .section-heading h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem,4vw,3.4rem); line-height: 1.1; margin-top: 10px; color: #181818; font-weight: 500; }
+        .section-heading p { max-width: 650px; margin: 16px auto 0; color: #707070; line-height: 1.7; }
+        #sisters { background: #fff; }
+        .sisters-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; align-items: stretch; }
+        .sister-card { background: #fff; border: 1px solid #e4e4e4; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,.06); transition: transform .25s ease, box-shadow .25s ease; }
+        .sister-card:hover { transform: translateY(-6px); box-shadow: 0 15px 35px rgba(0,0,0,.11); }
+        .sister-photo { width: 100%; aspect-ratio: 4/5; background: #e9e9e9; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .sister-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .photo-placeholder { color: #888; text-align: center; padding: 20px; font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .sister-info { padding: 24px 25px 28px; border-top: 4px solid #c91f2c; }
+        .sister-info h3 { font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; font-weight: 600; margin-bottom: 7px; color: #181818; }
+        .sister-info p { color: #6d6d6d; font-size: .92rem; line-height: 1.7; }
+        #support { background: #f3e9e7; color: #181818; }
+        .support-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
+        .support-copy h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.2rem,4vw,3.6rem); line-height: 1.05; margin-bottom: 22px; font-weight: 500; }
+        .support-copy h2 span { color: #df3542; }
+        .support-copy p { color: #5f5552; margin-bottom: 20px; line-height: 1.8; }
+        .pledge-form { background: #fff; color: #181818; padding: 34px; border-radius: 18px; box-shadow: 0 15px 45px rgba(0,0,0,.25); }
+        .pledge-form h3 { text-transform: uppercase; font-size: 1.45rem; margin-bottom: 24px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 7px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 13px 14px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; font-size: .95rem; background: #fafafa; transition: border .2s ease; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #c91f2c; background: #fff; }
+        .form-group textarea { min-height: 105px; resize: vertical; }
+        .submit-button { width: 100%; border: none; background: #c91f2c; color: #fff; padding: 14px; border-radius: 30px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all .2s ease; }
+        .submit-button:hover { background: #181818; transform: translateY(-1px); }
+        footer { background: #fff; color: #777; border-top: 1px solid #eadfdd; text-align: center; padding: 28px 20px; font-size: .8rem; }
+        footer strong { color: #181818; }
+        @media (max-width: 850px) {
+            .support-grid { grid-template-columns: 1fr; gap: 40px; }
+            .support-copy { text-align: center; }
+            .sisters-grid { gap: 18px; }
+            .sister-info { padding: 20px; }
+        }
+        @media (max-width: 650px) {
+            .countdown-bar { padding: 10px 10px 60px; }
+            .countdown-content { gap: 8px; }
+            .countdown-label { width: 100%; text-align: center; font-size: .65rem; }
+            .donate-button { top: auto; bottom: 9px; right: 50%; transform: translateX(50%); }
+            .donate-button:hover { transform: translateX(50%) translateY(-2px); }
+            header { padding: 65px 20px 70px; min-height: 620px; text-align: center; }
+            header::before { background: linear-gradient(180deg, rgba(255,250,248,.96) 0%, rgba(255,250,248,.76) 45%, rgba(255,250,248,.42) 100%); }
+            .header-athletes { right: 50%; transform: translateX(50%); width: min(100vw, 560px); max-height: 58%; bottom: 0; opacity: .92; }
+            .hero-inner { display: flex; flex-direction: column; align-items: center; }
+            .brand-signature { margin-bottom: 28px; }
+            header h1, .hero-text { position: relative; z-index: 3; }
+            .hero-links { justify-content: center; position: relative; z-index: 3; }
+            header h1 { font-size: 2.6rem; }
+            .hero-text { font-size: .95rem; }
+            .hero-links { flex-direction: column; max-width: 300px; margin: auto; }
+            .hero-link { width: 100%; }
+            .sisters-grid { grid-template-columns: 1fr; max-width: 450px; margin: auto; }
+            .pledge-form { padding: 25px 20px; }
+        }
+        @media (max-width: 430px) {
+            .time-box { min-width: 40px; }
+            .time-number { font-size: 1.1rem; }
+            .timer-divider { font-size: .9rem; }
+            section { padding: 70px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="countdown-bar">
+        <div class="countdown-content">
+            <div class="countdown-label">Carifta Gymnastics Championship</div>
+            <div class="timer">
+                <div class="time-box"><span class="time-number" id="days">00</span><span class="time-label">Days</span></div>
+                <span class="timer-divider">:</span>
+                <div class="time-box"><span class="time-number" id="hours">00</span><span class="time-label">Hours</span></div>
+                <span class="timer-divider">:</span>
+                <div class="time-box"><span class="time-number" id="minutes">00</span><span class="time-label">Minutes</span></div>
+                <span class="timer-divider">:</span>
+                <div class="time-box"><span class="time-number" id="seconds">00</span><span class="time-label">Seconds</span></div>
+            </div>
+        </div>
+        <a href="#support" class="donate-button">Donate</a>
+    </div>
+
+    <header>
+        <img class="header-athletes" src="images/leighsisters.png" alt="The Leigh Sisters" aria-hidden="true">
+        <div class="hero-inner">
+            <div class="brand-signature">The Leigh Sisters</div>
+            <div class="eyebrow">One Journey</div>
+            <h1>Meet the <span>Leigh Sisters</span></h1>
+            <p class="hero-text">
+                One journey. Meet the Leigh Sisters — Zaria-Leigh, Zhavia-Leigh and Keira-Leigh —
+                three sisters growing, competing and making their mark in the world of gymnastics.
+                Follow their journey as they train, compete, overcome challenges and continue to chase
+                new goals, one routine at a time.
+            </p>
+            <div class="hero-links">
+                <a href="#support" class="hero-link primary">Support Their Journey</a>
+                <a href="#sisters" class="hero-link">Meet the Leigh Sisters</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="sisters">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div class="small-title">Who We Are</div>
+                <h2>Meet the Leigh Sisters</h2>
+                <p>Three sisters. One passion. A journey built on dedication, discipline and the love of gymnastics.</p>
+            </div>
+
+            <div class="sisters-grid">
+
+                <article class="sister-card">
+                    <div class="sister-photo">
+                        <img src="images/zaria-leigh.jpg" alt="Zaria-Leigh"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="photo-placeholder" style="display:none;">Zaria-Leigh Photo</div>
+                    </div>
+                    <div class="sister-info">
+                        <h3>Zaria-Leigh</h3>
+                        <p>Add Zaria-Leigh's gymnastics story, achievements and personal journey here.</p>
+                    </div>
+                </article>
+
+                <article class="sister-card">
+                    <div class="sister-photo">
+                        <img src="images/zhavia-leigh.jpg" alt="Zhavia-Leigh"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="photo-placeholder" style="display:none;">Zhavia-Leigh Photo</div>
+                    </div>
+                    <div class="sister-info">
+                        <h3>Zhavia-Leigh</h3>
+                        <p>Add Zhavia-Leigh's gymnastics story, achievements and personal journey here.</p>
+                    </div>
+                </article>
+
+                <article class="sister-card">
+                    <div class="sister-photo">
+                        <img src="images/keira-leigh.jpg" alt="Keira-Leigh"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="photo-placeholder" style="display:none;">Keira-Leigh Photo</div>
+                    </div>
+                    <div class="sister-info">
+                        <h3>Keira-Leigh</h3>
+                        <p>Add Keira-Leigh's gymnastics story, achievements and personal journey here.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="support">
+        <div class="section-inner">
+            <div class="support-grid">
+                <div class="support-copy">
+                    <div class="eyebrow">Help Them Get There</div>
+                    <h2>Support Their <span>Journey</span></h2>
+                    <p>The Leigh Sisters are working toward representing Trinidad &amp; Tobago at the Carifta Gymnastics Championship in The Bahamas.</p>
+                    <p>Every contribution helps support their training, travel, competition expenses and the opportunity to continue pursuing their gymnastics dreams.</p>
+                    <p>If you would like to make a pledge, complete the form and someone from the team will follow up with you.</p>
+                </div>
+
+                <div class="pledge-form">
+                    <h3>Make a Pledge</h3>
+                    <!-- Replace YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL with your deployed Google Apps Script Web App URL. -->
+                    <form id="pledgeForm" action="https://script.google.com/macros/s/AKfycbw3bPtGqBhR6m49Rxh-Srcr-FnUeU1w1WbZYCoPahQH0ca3NilD9psvcTH2vDWXZO008g/exec" method="POST" target="pledge-response-frame">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your contact number">
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Pledge Amount</label>
+                            <input type="number" id="amount" name="amount" min="0" step="50" placeholder="Enter amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Leave a message for the Leigh Sisters..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" id="submitPledgeButton">Submit My Pledge</button>
+                        <p id="pledgeStatus" class="pledge-status" role="status" aria-live="polite"></p>
+                        <div class="payment-instructions">
+                            <strong>Pledges can be sent to:</strong><br>
+                            Curlene Browne<br>
+                            Republic Bank Chequing Account<br>
+                            <strong>1601 3259 0701</strong>
+                        </div>
+                        <iframe name="pledge-response-frame" id="pledge-response-frame" title="Pledge submission response" style="display:none;"></iframe>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>The Leigh Sisters</strong> &nbsp; | &nbsp; Supporting the journey to Carifta 2026</p>
+    </footer>
+
+    <script>
+        const pledgeForm = document.getElementById("pledgeForm");
+        const pledgeStatus = document.getElementById("pledgeStatus");
+        const submitPledgeButton = document.getElementById("submitPledgeButton");
+
+        window.addEventListener("message", function (event) {
+            if (!event.data || event.data.type !== "pledgeSubmission") return;
+
+            if (event.data.status === "success") {
+                pledgeStatus.textContent = "Thank you for your pledge! Pledges can be sent to Curlene Browne - Republic Bank Chequing Account - 1601 3259 0701.";
+                pledgeStatus.style.color = "#2d6a4f";
+                pledgeForm.reset();
+            } else {
+                pledgeStatus.textContent = "We couldn't record your pledge. Please try again or contact the Leigh Sisters directly.";
+                pledgeStatus.style.color = "#b42318";
+            }
+
+            submitPledgeButton.disabled = false;
+            submitPledgeButton.textContent = "Submit My Pledge";
+        });
+
+        pledgeForm.addEventListener("submit", function () {
+            if (pledgeForm.action.includes("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL")) {
+                pledgeStatus.textContent = "The pledge form still needs the Google Apps Script web-app URL to be connected.";
+                pledgeStatus.style.color = "#b42318";
+                return;
+            }
+
+            submitPledgeButton.disabled = true;
+            submitPledgeButton.textContent = "Submitting...";
+            pledgeStatus.textContent = "Submitting your pledge...";
+            pledgeStatus.style.color = "#7a1d26";
+        });
+
+        const targetDate = new Date("November 12, 2026 00:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = String(days).padStart(2, "0");
+            document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
