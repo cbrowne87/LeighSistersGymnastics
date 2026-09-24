@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zhavia-Leigh | The Leigh Sisters</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            background: #fbf8f7;
+            color: #181818;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           TOP NAVIGATION
+        ============================== */
+
+        .top-bar {
+            min-height: 72px;
+            background: #fff;
+            border-bottom: 3px solid #c91f2c;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 6%;
+        }
+
+        .brand {
+            font-family: "Brush Script MT", "Segoe Script", cursive;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #c91f2c;
+            transform: rotate(-2deg);
+        }
+
+        .back-link {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #d9cfcd;
+            border-radius: 30px;
+            color: #333;
+            text-decoration: none;
+            font-size: .72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: .2s ease;
+        }
+
+        .back-link:hover {
+            background: #181818;
+            color: #fff;
+            border-color: #181818;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            position: relative;
+            min-height: 610px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 78% 25%,
+                    rgba(201,31,44,.16),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fffaf8 0%,
+                    #f5eae7 55%,
+                    #eee1de 100%
+                );
+
+            padding: 70px 6%;
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            color: #c91f2c;
+            font-size: .72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3.3rem, 7vw, 6rem);
+            line-height: .95;
+            font-weight: 500;
+            letter-spacing: -.04em;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #c91f2c;
+            font-style: italic;
+        }
+
+        .personality {
+            font-size: 1.05rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #4c4442;
+            margin-bottom: 25px;
+        }
+
+        .hero-intro {
+            max-width: 610px;
+            color: #5e5654;
+            font-size: 1.02rem;
+            line-height: 1.85;
+            margin-bottom: 30px;
+        }
+
+
+        /* ==============================
+           QUICK FACTS
+        ============================== */
+
+        .quick-facts {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .fact {
+            background: #fff;
+            border: 1px solid #e5d9d6;
+            border-radius: 12px;
+            padding: 13px 18px;
+            box-shadow: 0 7px 20px rgba(0,0,0,.04);
+        }
+
+        .fact-label {
+            display: block;
+            color: #999;
+            font-size: .58rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 900;
+            margin-bottom: 3px;
+        }
+
+        .fact-value {
+            font-size: .9rem;
+            font-weight: 900;
+            color: #252525;
+        }
+
+
+        /* ==============================
+           PHOTO
+        ============================== */
+
+        .hero-photo {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-frame {
+            position: relative;
+            width: min(100%, 420px);
+            aspect-ratio: 4 / 5;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #eee;
+            box-shadow: 0 25px 60px rgba(70,30,30,.18);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #888;
+            padding: 30px;
+        }
+
+        .photo-tag {
+            position: absolute;
+            left: -20px;
+            bottom: 35px;
+            background: #c91f2c;
+            color: #fff;
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-size: .72rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(201,31,44,.25);
+        }
+
+
+        /* ==============================
+           STORY
+        ============================== */
+
+        .story-section {
+            background: #fff;
+            padding: 90px 20px;
+        }
+
+        .story-inner {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .small-title {
+            color: #c91f2c;
+            text-transform: uppercase;
+            font-size: .7rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .story-inner h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .story-inner p {
+            color: #64605e;
+            font-size: 1rem;
+            line-height: 1.9;
+            margin: 0 auto 20px;
+            max-width: 780px;
+        }
+
+        .story-highlight {
+            margin: 40px auto 0;
+            max-width: 750px;
+            background: #f7eeec;
+            border-left: 5px solid #c91f2c;
+            border-radius: 12px;
+            padding: 28px 35px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #493f3d;
+        }
+
+
+        /* ==============================
+           CARIFTA FEATURE
+        ============================== */
+
+        .carifta-section {
+            background: #181818;
+            color: #fff;
+            padding: 70px 20px;
+        }
+
+        .carifta-inner {
+            max-width: 950px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .carifta-badge {
+            display: inline-block;
+            background: #c91f2c;
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: .65rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .carifta-inner h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.3rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .carifta-inner h2 span {
+            color: #df3542;
+            font-style: italic;
+        }
+
+        .carifta-inner p {
+            color: #d2cccc;
+            max-width: 720px;
+            margin: auto;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .tt {
+            margin-top: 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .8rem;
+        }
+
+
+        /* ==============================
+           PROGRESSION
+        ============================== */
+
+        .progress-section {
+            background: #f7eeec;
+            padding: 65px 20px;
+        }
+
+        .progress-inner {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .progress-inner h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .progress-path {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .progress-card {
+            min-width: 230px;
+            background: #fff;
+            border: 1px solid #e4d7d4;
+            border-radius: 16px;
+            padding: 22px 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,.04);
+        }
+
+        .progress-year {
+            color: #c91f2c;
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 900;
+        }
+
+        .progress-level {
+            display: block;
+            margin-top: 5px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.5rem;
+        }
+
+        .progress-arrow {
+            color: #c91f2c;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+
+        /* ==============================
+           COMPETITIONS
+        ============================== */
+
+        .competition-section {
+            padding: 90px 20px;
+            background: #fbf8f7;
+        }
+
+        .competition-inner {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #777;
+            max-width: 680px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .meet-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 25px;
+        }
+
+        .meet-card {
+            background: #fff;
+            border: 1px solid #eadfdd;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.05);
+            transition: .2s ease;
+        }
+
+        .meet-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,.09);
+        }
+
+        .featured-meet {
+            border-top: 5px solid #c91f2c;
+        }
+
+        .meet-year {
+            color: #c91f2c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .68rem;
+            font-weight: 900;
+            margin-bottom: 7px;
+        }
+
+        .meet-card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.55rem;
+            line-height: 1.2;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .meet-level {
+            color: #888;
+            font-size: .8rem;
+            margin-bottom: 22px;
+        }
+
+        .aa-result {
+            background: #f8efed;
+            border-radius: 12px;
+            padding: 17px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .aa-label {
+            color: #777;
+            text-transform: uppercase;
+            font-size: .62rem;
+            letter-spacing: 1px;
+            font-weight: 900;
+        }
+
+        .aa-score {
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .aa-place {
+            color: #c91f2c;
+            font-weight: 900;
+            font-size: .9rem;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 9px;
+            margin-bottom: 23px;
+        }
+
+        .event {
+            border: 1px solid #eee5e3;
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .event-name {
+            display: block;
+            color: #999;
+            text-transform: uppercase;
+            font-size: .57rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .event-score {
+            font-weight: 900;
+            color: #333;
+        }
+
+        .placement {
+            color: #c91f2c;
+            font-size: .73rem;
+            font-weight: 900;
+            margin-left: 4px;
+        }
+
+        .results-link {
+            display: inline-block;
+            color: #fff;
+            background: #c91f2c;
+            text-decoration: none;
+            padding: 11px 19px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: .65rem;
+            font-weight: 900;
+            transition: .2s ease;
+        }
+
+        .results-link:hover {
+            background: #181818;
+            transform: translateY(-1px);
+        }
+
+
+        /* ==============================
+           CLOSING
+        ============================== */
+
+        .closing-section {
+            padding: 80px 20px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .closing-inner {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .closing-inner h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem,4vw,3.4rem);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .closing-inner h2 span {
+            color: #c91f2c;
+            font-style: italic;
+        }
+
+        .closing-inner p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .home-button {
+            display: inline-block;
+            background: #181818;
+            color: #fff;
+            text-decoration: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: .7rem;
+            font-weight: 900;
+        }
+
+        .home-button:hover {
+            background: #c91f2c;
+        }
+
+        footer {
+            background: #f7f1ef;
+            border-top: 1px solid #eadfdd;
+            color: #777;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: .8rem;
+        }
+
+        footer strong {
+            color: #181818;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media(max-width:850px) {
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-copy {
+                margin: auto;
+            }
+
+            .quick-facts {
+                justify-content: center;
+            }
+
+            .hero-photo {
+                max-width: 430px;
+                margin: auto;
+                width: 100%;
+            }
+
+            .photo-tag {
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+
+            .meet-grid {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin: auto;
+            }
+        }
+
+        @media(max-width:550px) {
+
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero {
+                padding: 50px 18px;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .personality {
+                font-size: .82rem;
+            }
+
+            .fact {
+                flex: 1 1 45%;
+            }
+
+            .progress-path {
+                flex-direction: column;
+            }
+
+            .progress-arrow {
+                transform: rotate(90deg);
+            }
+
+            .progress-card {
+                width: 100%;
+            }
+
+            .meet-card {
+                padding: 24px 20px;
+            }
+
+            .aa-result {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     NAVIGATION
+================================== -->
+
+<div class="top-bar">
+
+    <div class="brand">
+        The Leigh Sisters
+    </div>
+
+    <a href="index.html#sisters" class="back-link">
+        ← Meet the Sisters
+    </a>
+
+</div>
+
+
+<!-- =================================
+     HERO
+================================== -->
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-copy">
+
+            <div class="eyebrow">
+                Meet Zhavia-Leigh
+            </div>
+
+            <h1>
+                Zhavia-<span>Leigh</span>
+            </h1>
+
+            <div class="personality">
+                Precise • Focused • Eager to Learn
+            </div>
+
+            <p class="hero-intro">
+                Zhavia-Leigh began her gymnastics journey at just
+                five years old. With an amazing attention to detail
+                and a genuine eagerness to learn, she brings focus,
+                precision and determination to everything she does.
+            </p>
+
+            <div class="quick-facts">
+
+                <div class="fact">
+                    <span class="fact-label">Started Gymnastics</span>
+                    <span class="fact-value">Age 5</span>
+                </div>
+
+                <div class="fact">
+                    <span class="fact-label">Current Level</span>
+                    <span class="fact-value">Level 1</span>
+                </div>
+
+                <div class="fact">
+                    <span class="fact-label">Strength</span>
+                    <span class="fact-value">Attention to Detail</span>
+                </div>
+
+                <div class="fact">
+                    <span class="fact-label">2026</span>
+                    <span class="fact-value">National Team</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-photo">
+
+            <div class="photo-frame">
+
+                <img
+                    src="images/zhavia-leigh.jpg"
+                    alt="Zhavia-Leigh"
+                    onerror="
+                        this.style.display='none';
+                        this.nextElementSibling.style.display='flex';
+                    "
+                >
+
+                <div class="photo-placeholder">
+                    Add Zhavia-Leigh's photo as
+                    <strong>&nbsp;images/zhavia-leigh.jpg</strong>
+                </div>
+
+            </div>
+
+            <div class="photo-tag">
+                Precision • Focus • Determination
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =================================
+     HER STORY
+================================== -->
+
+<section class="story-section">
+
+    <div class="story-inner">
+
+        <div class="small-title">
+            Her Story
+        </div>
+
+        <h2>
+            Focused on Learning & Growing
+        </h2>
+
+        <p>
+            Zhavia-Leigh began her gymnastics journey at just
+            <strong>five years old</strong>. From the start, she has
+            brought a focused approach to the sport, with an amazing
+            attention to detail and a genuine eagerness to learn
+            and improve.
+        </p>
+
+        <p>
+            Zhavia loves learning new things. Whether she is working
+            on a new skill, making a small correction or trying
+            something for the first time, she enjoys the challenge
+            of figuring it out and putting what she learns into
+            practice.
+        </p>
+
+        <p>
+            She pays attention to the little details, and that
+            precision can be seen in the way she approaches both
+            training and competition.
+        </p>
+
+        <p>
+            Gymnastics continues to teach Zhavia discipline,
+            confidence and perseverance. Each practice is another
+            opportunity to learn, refine her skills and become a
+            stronger gymnast.
+        </p>
+
+        <div class="story-highlight">
+            Her journey is about continuing to learn, paying
+            attention to the details, challenging herself and
+            discovering just how much she is capable of.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     CARIFTA NATIONAL TEAM
+================================== -->
+
+<section class="carifta-section">
+
+    <div class="carifta-inner">
+
+        <div class="carifta-badge">
+            A Special Milestone
+        </div>
+
+        <h2>
+            CARIFTA 2026
+            <span>National Team</span>
+        </h2>
+
+        <p>
+            Zhavia-Leigh's hard work has led to an exciting milestone
+            in her gymnastics journey. She has qualified for the
+            <strong>Level 1 National Team</strong> for the
+            <strong>CARIFTA Gymnastics Championships 2026</strong>
+            in The Bahamas.
+        </p>
+
+        <div class="tt">
+            Representing Trinidad &amp; Tobago 🇹🇹
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     PROGRESSION
+================================== -->
+
+<section class="progress-section">
+
+    <div class="progress-inner">
+
+        <div class="small-title">
+            Growing in the Sport
+        </div>
+
+        <h2>
+            From Pre-Competitive to National Team
+        </h2>
+
+        <div class="progress-path">
+
+            <div class="progress-card">
+                <span class="progress-year">2025</span>
+                <span class="progress-level">Pre-Competitive</span>
+            </div>
+
+            <div class="progress-arrow">→</div>
+
+            <div class="progress-card">
+                <span class="progress-year">2026</span>
+                <span class="progress-level">Level 1</span>
+            </div>
+
+            <div class="progress-arrow">→</div>
+
+            <div class="progress-card">
+                <span class="progress-year">CARIFTA 2026</span>
+                <span class="progress-level">National Team</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     COMPETITION JOURNEY
+================================== -->
+
+<section class="competition-section">
+
+    <div class="competition-inner">
+
+        <div class="section-heading">
+
+            <div class="small-title">
+                Meet Results
+            </div>
+
+            <h2>
+                Zhavia's Competition Journey
+            </h2>
+
+            <p>
+                Each competition is another opportunity to learn,
+                refine and grow. Follow Zhavia-Leigh's progress
+                through her competition results.
+            </p>
+
+        </div>
+
+
+        <div class="meet-grid">
+
+
+            <!-- 2026 WE FLIPPIN' -->
+
+            <article class="meet-card featured-meet">
+
+                <div class="meet-year">2026</div>
+
+                <h3>We Flippin'</h3>
+
+                <div class="meet-level">
+                    Level 1 • Group 1
+                </div>
+
+                <div class="aa-result">
+
+                    <div>
+                        <div class="aa-label">All-Around</div>
+                        <div class="aa-score">38.200</div>
+                    </div>
+
+                    <div class="aa-place">
+                        🥇 1st Overall
+                    </div>
+
+                </div>
+
+                <div class="event-grid">
+
+                    <div class="event">
+                        <span class="event-name">Vault</span>
+                        <span class="event-score">10.000</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Bars</span>
+                        <span class="event-score">9.500</span>
+                        <span class="placement">🥈 2nd</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Beam</span>
+                        <span class="event-score">9.400</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Floor</span>
+                        <span class="event-score">9.300</span>
+                        <span class="placement">5th</span>
+                    </div>
+
+                </div>
+
+                <a
+                    class="results-link"
+                    href="https://www.meetscoresonline.com/results/36460/1455147#I5__1__Group%201"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Results ↗
+                </a>
+
+            </article>
+
+
+            <!-- 2026 NATIONALS -->
+
+            <article class="meet-card featured-meet">
+
+                <div class="meet-year">2026</div>
+
+                <h3>
+                    TTGF National Championships
+                </h3>
+
+                <div class="meet-level">
+                    Level 1 • 6 &amp; Young 7
+                </div>
+
+                <div class="aa-result">
+
+                    <div>
+                        <div class="aa-label">All-Around</div>
+                        <div class="aa-score">36.600</div>
+                    </div>
+
+                    <div class="aa-place">
+                        🥈 2nd Overall
+                    </div>
+
+                </div>
+
+                <div class="event-grid">
+
+                    <div class="event">
+                        <span class="event-name">Vault</span>
+                        <span class="event-score">9.200</span>
+                        <span class="placement">5T</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Bars</span>
+                        <span class="event-score">9.400</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Beam</span>
+                        <span class="event-score">9.200</span>
+                        <span class="placement">🥈 2nd</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Floor</span>
+                        <span class="event-score">8.800</span>
+                        <span class="placement">6th</span>
+                    </div>
+
+                </div>
+
+                <a
+                    class="results-link"
+                    href="https://www.meetscoresonline.com/results/36751/1472142#I7__1__6%20%26Young%207"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Results ↗
+                </a>
+
+            </article>
+
+
+            <!-- 2025 CARIBBEAN CLASSIC -->
+
+            <article class="meet-card featured-meet">
+
+                <div class="meet-year">2025</div>
+
+                <h3>Caribbean Classic</h3>
+
+                <div class="meet-level">
+                    Pre-Competitive • 5yrs–6yng
+                </div>
+
+                <div class="aa-result">
+
+                    <div>
+                        <div class="aa-label">All-Around</div>
+                        <div class="aa-score">36.550</div>
+                    </div>
+
+                    <div class="aa-place">
+                        🥈 2nd Overall
+                    </div>
+
+                </div>
+
+                <div class="event-grid">
+
+                    <div class="event">
+                        <span class="event-name">Vault</span>
+                        <span class="event-score">9.500</span>
+                        <span class="placement">2T</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Bars</span>
+                        <span class="event-score">8.750</span>
+                        <span class="placement">5T</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Beam</span>
+                        <span class="event-score">9.300</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Floor</span>
+                        <span class="event-score">9.000</span>
+                        <span class="placement">6th</span>
+                    </div>
+
+                </div>
+
+                <a
+                    class="results-link"
+                    href="https://www.meetscoresonline.com/results/34691/1356676#I6__PC__5yrs-6yng"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Results ↗
+                </a>
+
+            </article>
+
+
+            <!-- 2025 NATIONALS -->
+
+            <article class="meet-card featured-meet">
+
+                <div class="meet-year">2025</div>
+
+                <h3>
+                    TTGF National Championships
+                </h3>
+
+                <div class="meet-level">
+                    Pre-Competitive • 5 &amp; 6 Young
+                </div>
+
+                <div class="aa-result">
+
+                    <div>
+                        <div class="aa-label">All-Around</div>
+                        <div class="aa-score">36.500</div>
+                    </div>
+
+                    <div class="aa-place">
+                        🥈 2nd Overall
+                    </div>
+
+                </div>
+
+                <div class="event-grid">
+
+                    <div class="event">
+                        <span class="event-name">Vault</span>
+                        <span class="event-score">9.450</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Bars</span>
+                        <span class="event-score">8.600</span>
+                        <span class="placement">🥉 3rd</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Beam</span>
+                        <span class="event-score">9.550</span>
+                        <span class="placement">🥇 1st</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Floor</span>
+                        <span class="event-score">8.900</span>
+                        <span class="placement">5th</span>
+                    </div>
+
+                </div>
+
+                <a
+                    class="results-link"
+                    href="https://www.meetscoresonline.com/results/34730/1361621#I3__PC__5%20%26%206%20Youn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Results ↗
+                </a>
+
+            </article>
+
+
+            <!-- 2025 WE FLIPPIN' -->
+
+            <article class="meet-card">
+
+                <div class="meet-year">2025</div>
+
+                <h3>We Flippin'</h3>
+
+                <div class="meet-level">
+                    Pre-Competitive • Group 1
+                </div>
+
+                <div class="aa-result">
+
+                    <div>
+                        <div class="aa-label">All-Around</div>
+                        <div class="aa-score">34.600</div>
+                    </div>
+
+                    <div class="aa-place">
+                        5th Overall
+                    </div>
+
+                </div>
+
+                <div class="event-grid">
+
+                    <div class="event">
+                        <span class="event-name">Vault</span>
+                        <span class="event-score">9.300</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Bars</span>
+                        <span class="event-score">8.550</span>
+                        <span class="placement">5th</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Beam</span>
+                        <span class="event-score">8.100</span>
+                        <span class="placement">7th</span>
+                    </div>
+
+                    <div class="event">
+                        <span class="event-name">Floor</span>
+                        <span class="event-score">8.650</span>
+                        <span class="placement">7th</span>
+                    </div>
+
+                </div>
+
+                <a
+                    class="results-link"
+                    href="https://www.meetscoresonline.com/results/34474/1344917#I7__PC__Group%201"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    View Official Results ↗
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     CLOSING
+================================== -->
+
+<section class="closing-section">
+
+    <div class="closing-inner">
+
+        <div class="small-title">
+            Her Journey Continues
+        </div>
+
+        <h2>
+            One Detail. One Skill.
+            <span>One New Lesson at a Time.</span>
+        </h2>
+
+        <p>
+            From beginning gymnastics at five to earning a place
+            on the Level 1 National Team, every step of
+            Zhavia-Leigh's journey has given her another opportunity
+            to learn and grow. Now, a new chapter awaits as she
+            prepares for CARIFTA 2026.
+        </p>
+
+        <a href="index.html#sisters" class="home-button">
+            ← Back to Meet the Leigh Sisters
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+    <p>
+        <strong>The Leigh Sisters</strong>
+        &nbsp; | &nbsp;
+        Supporting the journey to CARIFTA 2026
+    </p>
+</footer>
+
+
+</body>
+</html>
