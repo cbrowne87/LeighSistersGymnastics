@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Keira-Leigh | The Leigh Sisters</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            background: #fbf8f7;
+            color: #181818;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+
+        /* ==============================
+           NAVIGATION
+        ============================== */
+
+        .top-nav {
+            background: #fff;
+            border-bottom: 1px solid #eadfdd;
+            padding: 17px 22px;
+        }
+
+        .nav-inner {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .signature {
+            font-family: "Brush Script MT", "Segoe Script", cursive;
+            color: #c91f2c;
+            font-size: 2rem;
+            text-decoration: none;
+            transform: rotate(-2deg);
+        }
+
+        .back-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: .72rem;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            color: #555;
+            transition: color .2s ease;
+        }
+
+        .back-link:hover {
+            color: #c91f2c;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 85px 20px 95px;
+
+            background:
+                radial-gradient(
+                    circle at 75% 25%,
+                    rgba(201,31,44,.15),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fffaf8 0%,
+                    #f7edeb 55%,
+                    #eee3e0 100%
+                );
+        }
+
+        .hero-inner {
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: #c91f2c;
+            font-size: .72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 13px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(3.2rem, 7vw, 6rem);
+            line-height: .95;
+            font-weight: 500;
+            letter-spacing: -.045em;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #c91f2c;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-size: .78rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+            margin-bottom: 28px;
+        }
+
+        .hero-intro {
+            max-width: 630px;
+            color: #5f5f5f;
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+
+        /* ==============================
+           QUICK FACTS
+        ============================== */
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .fact {
+            background: rgba(255,255,255,.78);
+            border: 1px solid #eadfdd;
+            padding: 18px;
+            border-radius: 13px;
+        }
+
+        .fact-label {
+            display: block;
+            color: #999;
+            font-size: .62rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .fact-value {
+            display: block;
+            color: #181818;
+            font-size: .93rem;
+            font-weight: 900;
+        }
+
+
+        /* ==============================
+           PHOTO
+        ============================== */
+
+        .photo-column {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-wrap {
+            position: relative;
+            width: min(100%, 420px);
+        }
+
+        .photo-frame {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 25px;
+            background: #ddd;
+            box-shadow: 0 25px 60px rgba(60,20,20,.18);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-tag {
+            position: absolute;
+            left: -25px;
+            bottom: 30px;
+
+            background: #181818;
+            color: #fff;
+
+            padding: 13px 22px;
+            border-radius: 30px;
+
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 900;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.22);
+        }
+
+
+        /* ==============================
+           GENERAL SECTIONS
+        ============================== */
+
+        section {
+            padding: 90px 20px;
+        }
+
+        .section-inner {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin-bottom: 45px;
+        }
+
+        .section-heading.center {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .small-title {
+            color: #c91f2c;
+            text-transform: uppercase;
+            font-size: .7rem;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            font-weight: 500;
+            line-height: 1.08;
+            margin-bottom: 18px;
+        }
+
+        .section-heading p {
+            color: #707070;
+            line-height: 1.8;
+        }
+
+
+        /* ==============================
+           STORY
+        ============================== */
+
+        .story-section {
+            background: #fff;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: .75fr 1.25fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .story-title {
+            position: sticky;
+            top: 30px;
+        }
+
+        .story-title h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2.4rem,5vw,4rem);
+            font-weight: 500;
+            line-height: 1.05;
+        }
+
+        .story-title h2 span {
+            color: #c91f2c;
+            font-style: italic;
+        }
+
+        .story-copy p {
+            color: #555;
+            font-size: 1.02rem;
+            line-height: 1.95;
+            margin-bottom: 23px;
+        }
+
+        .story-copy p:first-child::first-letter {
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            line-height: .8;
+            float: left;
+            margin-right: 8px;
+            margin-top: 10px;
+            color: #c91f2c;
+        }
+
+
+        /* ==============================
+           PROGRESSION
+        ============================== */
+
+        .progression-section {
+            background: #f3e9e7;
+        }
+
+        .progression-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 13px;
+        }
+
+        .progress-card {
+            position: relative;
+            background: #fff;
+            border-radius: 16px;
+            padding: 26px 18px;
+            text-align: center;
+            border: 1px solid #eadfdd;
+        }
+
+        .progress-year {
+            color: #c91f2c;
+            font-size: .66rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 7px;
+        }
+
+        .progress-level {
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .progress-note {
+            color: #777;
+            font-size: .78rem;
+            line-height: 1.5;
+        }
+
+
+        /* ==============================
+           FEATURED CHAMPIONSHIP
+        ============================== */
+
+        .feature-section {
+            background: #181818;
+            color: #fff;
+        }
+
+        .feature-inner {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .feature-section .small-title {
+            color: #ef5661;
+        }
+
+        .feature-section h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(2.5rem,5vw,4.3rem);
+            font-weight: 500;
+            line-height: 1.08;
+            margin-bottom: 22px;
+        }
+
+        .feature-section h2 span {
+            color: #ef5661;
+            font-style: italic;
+        }
+
+        .feature-section p {
+            max-width: 760px;
+            margin: auto;
+            color: #ccc;
+            line-height: 1.9;
+        }
+
+        .feature-stats {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .feature-stat {
+            padding: 25px 15px;
+            border: 1px solid #444;
+            border-radius: 14px;
+        }
+
+        .feature-stat strong {
+            display: block;
+            color: #fff;
+            font-family: Georgia, serif;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .feature-stat span {
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: .64rem;
+            font-weight: 900;
+        }
+
+
+        /* ==============================
+           RESULTS
+        ============================== */
+
+        .results-section {
+            background: #fff;
+        }
+
+        .year-heading {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin: 60px 0 24px;
+        }
+
+        .year-heading:first-of-type {
+            margin-top: 0;
+        }
+
+        .year-heading h3 {
+            font-family: Georgia, serif;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .year-heading::after {
+            content: "";
+            height: 1px;
+            background: #e4d9d7;
+            flex: 1;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .result-card {
+            background: #fbf8f7;
+            border: 1px solid #e9dfdd;
+            border-radius: 17px;
+            overflow: hidden;
+        }
+
+        .result-top {
+            padding: 22px 23px 18px;
+            border-bottom: 1px solid #eadfdd;
+        }
+
+        .result-meet {
+            font-family: Georgia, serif;
+            font-size: 1.25rem;
+            line-height: 1.3;
+            margin-bottom: 5px;
+        }
+
+        .result-meta {
+            color: #999;
+            font-size: .67rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .result-highlight {
+            margin-top: 14px;
+            color: #c91f2c;
+            font-weight: 900;
+            font-size: .88rem;
+        }
+
+        .scores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 8px 23px 19px;
+        }
+
+        .score {
+            padding: 11px 0;
+            border-bottom: 1px solid #eee5e3;
+        }
+
+        .score:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .score-label {
+            display: block;
+            color: #999;
+            font-size: .6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .score-value {
+            display: block;
+            font-weight: 900;
+            margin-top: 2px;
+            font-size: .9rem;
+        }
+
+        .score.gold .score-value {
+            color: #b17c00;
+        }
+
+        .score.silver .score-value {
+            color: #6f7378;
+        }
+
+        .score.bronze .score-value {
+            color: #9a5c32;
+        }
+
+
+        /* ==============================
+           CLOSING
+        ============================== */
+
+        .closing-section {
+            text-align: center;
+            background: #f3e9e7;
+        }
+
+        .closing-section h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(2.5rem,5vw,4rem);
+            font-weight: 500;
+            line-height: 1.1;
+            max-width: 780px;
+            margin: auto;
+        }
+
+        .closing-section h2 span {
+            color: #c91f2c;
+            font-style: italic;
+        }
+
+        .closing-section p {
+            max-width: 650px;
+            margin: 22px auto 0;
+            color: #666;
+            line-height: 1.9;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #fff;
+            color: #777;
+            border-top: 1px solid #eadfdd;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .8rem;
+        }
+
+        footer strong {
+            color: #181818;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 900px) {
+
+            .hero-inner,
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-inner {
+                gap: 55px;
+            }
+
+            .hero-copy {
+                text-align: center;
+            }
+
+            .hero-intro {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .facts {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .photo-tag {
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+
+            .story-title {
+                position: static;
+                text-align: center;
+            }
+
+            .progression-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .results-grid,
+            .feature-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .progression-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 18px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .facts {
+                grid-template-columns: 1fr;
+            }
+
+            .scores {
+                grid-template-columns: 1fr;
+            }
+
+            .score:nth-last-child(-n+2) {
+                border-bottom: 1px solid #eee5e3;
+            }
+
+            .score:last-child {
+                border-bottom: none;
+            }
+
+            .signature {
+                font-size: 1.6rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVIGATION
+    =============================== -->
+
+    <nav class="top-nav">
+
+        <div class="nav-inner">
+
+            <a href="index.html" class="signature">
+                The Leigh Sisters
+            </a>
+
+            <a href="index.html#sisters" class="back-link">
+                ← Meet the Sisters
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==============================
+         HERO
+    =============================== -->
+
+    <header class="hero">
+
+        <div class="hero-inner">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+                    Meet Keira-Leigh
+                </div>
+
+                <h1>
+                    Keira-<span>Leigh</span>
+                </h1>
+
+                <div class="tagline">
+                    Dynamic • Disciplined • Driven
+                </div>
+
+                <p class="hero-intro">
+                    A rising Trinidad &amp; Tobago gymnast with a genuine
+                    love for the sport. Keira-Leigh brings energy,
+                    discipline and determination to every stage of her
+                    journey as she continues to learn, compete and
+                    challenge herself at new levels.
+                </p>
+
+
+                <div class="facts">
+
+                    <div class="fact">
+                        <span class="fact-label">Started Gymnastics</span>
+                        <span class="fact-value">Age 6</span>
+                    </div>
+
+                    <div class="fact">
+                        <span class="fact-label">Current Level</span>
+                        <span class="fact-value">Level 6</span>
+                    </div>
+
+                    <div class="fact">
+                        <span class="fact-label">Club</span>
+                        <span class="fact-value">Tots &amp; Tumblers</span>
+                    </div>
+
+                    <div class="fact">
+                        <span class="fact-label">2026</span>
+                        <span class="fact-value">CARIFTA Qualifier</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="photo-column">
+
+                <div class="photo-wrap">
+
+                    <div class="photo-frame">
+
+                        <img
+                            src="images/keira-leigh.jpg"
+                            alt="Keira-Leigh"
+                        >
+
+                    </div>
+
+                    <div class="photo-tag">
+                        Dynamic • Disciplined • Determined
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==============================
+         STORY
+    =============================== -->
+
+    <section class="story-section">
+
+        <div class="section-inner">
+
+            <div class="story-grid">
+
+                <div class="story-title">
+
+                    <div class="small-title">
+                        Her Story
+                    </div>
+
+                    <h2>
+                        A Love for the
+                        <span>Sport.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="story-copy">
+
+                    <p>
+                        Keira-Leigh began gymnastics at six years old,
+                        and what started as a new adventure quickly grew
+                        into a genuine love for the sport. Dynamic,
+                        disciplined and determined, she brings energy
+                        to her gymnastics while continuing to challenge
+                        herself to learn, improve and reach new levels.
+                    </p>
+
+                    <p>
+                        From her earliest competitions, Keira showed a
+                        natural ability to perform under pressure. At the
+                        2023 Jamaica Classic, she was named the Level 1
+                        Top Scorer, beginning an international competition
+                        journey that would take her from Jamaica to Costa
+                        Rica, CARIFTA and beyond.
+                    </p>
+
+                    <p>
+                        As she progressed through the levels, Keira
+                        continued to build strong, confident performances
+                        across all four apparatus. Beam has become one of
+                        her standout events, while her competition results
+                        also show strength and consistency on bars, floor
+                        and vault.
+                    </p>
+
+                    <p>
+                        Her journey has been marked not only by medals and
+                        championship titles, but by progression. From
+                        Level 1 to Level 2, then through Levels 3, 4, 5
+                        and 6, each season has brought new skills, new
+                        challenges and new opportunities to represent
+                        Trinidad &amp; Tobago.
+                    </p>
+
+                    <p>
+                        For Keira, gymnastics is more than competition.
+                        It is a sport she genuinely loves—one that continues
+                        to teach her discipline, resilience, confidence and
+                        the value of working toward something one step at
+                        a time.
+                    </p>
+
+                    <p>
+                        Now competing at Level 6 and having qualified to
+                        represent Trinidad &amp; Tobago at the CARIFTA
+                        Gymnastics Championships 2026, Keira continues
+                        to pursue her journey with the same energy,
+                        discipline and love for gymnastics that started
+                        it all.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         LEVEL PROGRESSION
+    =============================== -->
+
+    <section class="progression-section">
+
+        <div class="section-inner">
+
+            <div class="section-heading center">
+
+                <div class="small-title">
+                    The Journey
+                </div>
+
+                <h2>
+                    Growing Through the Levels
+                </h2>
+
+                <p>
+                    From her first international competition to Level 6,
+                    every season has brought a new challenge.
+                </p>
+
+            </div>
+
+
+            <div class="progression-grid">
+
+                <div class="progress-card">
+                    <div class="progress-year">2023</div>
+                    <div class="progress-level">Level 1</div>
+                    <div class="progress-note">
+                        Jamaica Classic<br>
+                        Top Scorer
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-year">2024</div>
+                    <div class="progress-level">Level 2</div>
+                    <div class="progress-note">
+                        National Champion<br>
+                        CARIFTA Champion
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-year">2025</div>
+                    <div class="progress-level">Level 3</div>
+                    <div class="progress-note">
+                        TTGF National<br>
+                        Champion
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-year">2025</div>
+                    <div class="progress-level">Level 4</div>
+                    <div class="progress-note">
+                        CARIFTA<br>
+                        AA Silver
+                    </div>
+                </div>
+
+                <div class="progress-card">
+                    <div class="progress-year">2026</div>
+                    <div class="progress-level">Level 5 → 6</div>
+                    <div class="progress-note">
+                        CARIFTA 2026<br>
+                        Level 6 Qualifier
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CARIFTA 2026 FEATURE
+    =============================== -->
+
+    <section class="feature-section">
+
+        <div class="feature-inner">
+
+            <div class="small-title">
+                Team Trinidad &amp; Tobago
+            </div>
+
+            <h2>
+                CARIFTA 2026
+                <span>Level 6 Qualifier</span>
+            </h2>
+
+            <p>
+                Keira-Leigh has qualified to represent Trinidad &amp;
+                Tobago at the CARIFTA Gymnastics Championships 2026
+                at Level 6 — another milestone in a journey that has
+                taken her steadily through the competitive levels.
+            </p>
+
+
+            <div class="feature-stats">
+
+                <div class="feature-stat">
+                    <strong>Level 6</strong>
+                    <span>Competition Level</span>
+                </div>
+
+                <div class="feature-stat">
+                    <strong>Team TTO</strong>
+                    <span>Representing Trinidad &amp; Tobago</span>
+                </div>
+
+                <div class="feature-stat">
+                    <strong>CARIFTA 2026</strong>
+                    <span>Qualified</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         COMPETITION JOURNEY
+    =============================== -->
+
+    <section class="results-section">
+
+        <div class="section-inner">
+
+            <div class="section-heading">
+
+                <div class="small-title">
+                    Competition Journey
+                </div>
+
+                <h2>
+                    Championships &amp; Major Results
+                </h2>
+
+                <p>
+                    A look at some of the milestones, championship
+                    performances and podium finishes that have shaped
+                    Keira-Leigh's gymnastics journey.
+                </p>
+
+            </div>
+
+
+            <!-- ========================
+                 2023
+            ========================= -->
+
+            <div class="year-heading">
+                <h3>2023</h3>
+            </div>
+
+
+            <div class="results-grid">
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            Jamaica Classic
+                        </div>
+
+                        <div class="result-meta">
+                            Level 1 • Jamaica
+                        </div>
+
+                        <div class="result-highlight">
+                            🏆 Level 1 Top Scorer
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score silver">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">🥈 2nd</span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">🥇 1st</span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">🥇 1st</span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">🥇 1st</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ========================
+                 2024
+            ========================= -->
+
+            <div class="year-heading">
+                <h3>2024</h3>
+            </div>
+
+
+            <div class="results-grid">
+
+
+                <!-- WE FLIPPIN -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            We Flippin'
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2 • Group 1
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 All-Around Champion — 37.500
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score gold">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.400 • 1T
+                            </span>
+                        </div>
+
+                        <div class="score">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                8.800 • 5T
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.700 • 1T
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.600 • 1T
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARIBBEAN CLASSIC -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            Caribbean Classic
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2 • 5–7 yrs
+                        </div>
+
+                        <div class="result-highlight">
+                            🥉 3rd All-Around — 37.500
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.450 • 4T
+                            </span>
+                        </div>
+
+                        <div class="score">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.000 • 7th
+                            </span>
+                        </div>
+
+                        <div class="score bronze">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.400 • 3T
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.650 • 2nd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TTGF NATIONALS -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            TTGF National Championships
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2 • 7 + 8 yrs
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 National All-Around Champion — 38.400
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score bronze">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.600 • 3rd
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.600 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.800 • 1T
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.400 • 2T
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TTGF EVENT FINALS -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            TTGF Nationals — Event Finals
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 Beam Silver Medalist
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.150 • 6th
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.800 • 2nd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COPA ESTRELLAS -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            Copa Internacional Estrellas Gimnásticas
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2 • Costa Rica
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 All-Around Champion
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score gold">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                🥇 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                🥇 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                🥇 1st
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                🥈 2nd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARIFTA -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            CARIFTA Artistic Gymnastics Championships
+                        </div>
+
+                        <div class="result-meta">
+                            Level 2 • U8 • Jamaica
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 Beam &amp; Floor Champion
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                8.775
+                            </span>
+                        </div>
+
+                        <div class="score">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.050
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.875 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.600 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score">
+                            <span class="score-label">All-Around</span>
+                            <span class="score-value">
+                                37.300 • 5th
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ========================
+                 2025
+            ========================= -->
+
+            <div class="year-heading">
+                <h3>2025</h3>
+            </div>
+
+
+            <div class="results-grid">
+
+
+                <!-- CARIBBEAN CLASSIC -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            Caribbean Classic
+                        </div>
+
+                        <div class="result-meta">
+                            Level 3 • Division A
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 2nd All-Around — 37.600
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.000 • 6th
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.800 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.750 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.050 • 2nd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- WE FLIPPIN -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            We Flippin'
+                        </div>
+
+                        <div class="result-meta">
+                            Level 3 • Group 1
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 2nd All-Around — 37.600
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.000 • 8T
+                            </span>
+                        </div>
+
+                        <div class="score bronze">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.100 • 3T
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.900 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.600 • 1st
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TTGF NATIONALS -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            TTGF National Championships
+                        </div>
+
+                        <div class="result-meta">
+                            Level 3 • 7–9 yrs
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 National All-Around Champion — 38.000
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score silver">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.400 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.300 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.700 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.600 • 1st
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARIFTA -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            CARIFTA Artistic Gymnastics Championships
+                        </div>
+
+                        <div class="result-meta">
+                            Level 4 • 7–10 yrs • Team TTO
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 CARIFTA All-Around Silver — 37.850
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score bronze">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.625 • 3rd
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.475 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.375 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.375 • 4th
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- ========================
+                 2026
+            ========================= -->
+
+            <div class="year-heading">
+                <h3>2026</h3>
+            </div>
+
+
+            <div class="results-grid">
+
+
+                <!-- WE FLIPPIN -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            We Flippin'
+                        </div>
+
+                        <div class="result-meta">
+                            Level 5 • All Ages
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 All-Around Champion — 36.800
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score bronze">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.475 • 3rd
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                8.750 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.200 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.375 • 2nd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CARIBBEAN CLASSIC -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            Caribbean Classic
+                        </div>
+
+                        <div class="result-meta">
+                            Level 6 • 9–12 yrs
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 2nd All-Around — 37.100
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score bronze">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                9.150 • 3rd
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.175 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.400 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score bronze">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.375 • 3rd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TTGF NATIONALS LEVEL 6 -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            TTGF National Championships
+                        </div>
+
+                        <div class="result-meta">
+                            Level 6 • 10–12 yrs
+                        </div>
+
+                        <div class="result-highlight">
+                            🥈 2nd All-Around — 35.000
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score silver">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                8.725 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                8.500 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.000 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score bronze">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                8.775 • 3rd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PAGU / FIG -->
+
+                <article class="result-card">
+
+                    <div class="result-top">
+
+                        <div class="result-meet">
+                            TTGF Nationals — PAGU / FIG Session
+                        </div>
+
+                        <div class="result-meta">
+                            P1 • Team TTO
+                        </div>
+
+                        <div class="result-highlight">
+                            🥇 All-Around Champion — 40.500
+                        </div>
+
+                    </div>
+
+                    <div class="scores">
+
+                        <div class="score gold">
+                            <span class="score-label">Vault</span>
+                            <span class="score-value">
+                                11.700 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score silver">
+                            <span class="score-label">Bars</span>
+                            <span class="score-value">
+                                9.600 • 2nd
+                            </span>
+                        </div>
+
+                        <div class="score gold">
+                            <span class="score-label">Beam</span>
+                            <span class="score-value">
+                                9.800 • 1st
+                            </span>
+                        </div>
+
+                        <div class="score bronze">
+                            <span class="score-label">Floor</span>
+                            <span class="score-value">
+                                9.400 • 3rd
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         CLOSING
+    =============================== -->
+
+    <section class="closing-section">
+
+        <div class="section-inner">
+
+            <div class="small-title">
+                Her Journey Continues
+            </div>
+
+            <h2>
+                Driven by Discipline.
+                Powered by a <span>Love for Gymnastics.</span>
+            </h2>
+
+            <p>
+                Every new level brings a new challenge. Every competition
+                brings another opportunity to grow. Keira-Leigh's journey
+                continues as she works toward new skills, new goals and
+                the opportunity to proudly represent Trinidad &amp; Tobago.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==============================
+         FOOTER
+    =============================== -->
+
+    <footer>
+
+        <p>
+            <strong>The Leigh Sisters</strong>
+            &nbsp; | &nbsp;
+            One journey. Three sisters. A love for gymnastics.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

@@ -286,18 +286,23 @@
             line-height: 1.7;
         }
 
+        /* =================================
+           SISTERS
+        ================================= */
+
         #sisters {
             background: #fff;
         }
 
         .sisters-grid {
             display: grid;
-            grid-template-columns: repeat(3,minmax(0,1fr));
-            gap: 28px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
             align-items: stretch;
         }
 
         .sister-card {
+            min-width: 0;
             background: #fff;
             border: 1px solid #e4e4e4;
             border-radius: 18px;
@@ -313,12 +318,15 @@
 
         .sister-photo {
             width: 100%;
-            aspect-ratio: 4/5;
+            aspect-ratio: 4 / 5;
             background: #e9e9e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
+        }
+
+        .sister-photo a {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
         .sister-photo img {
@@ -355,6 +363,25 @@
             font-size: .92rem;
             line-height: 1.7;
         }
+
+        .sister-profile-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #c91f2c;
+            text-decoration: none;
+            font-size: .75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sister-profile-link:hover {
+            color: #181818;
+        }
+
+        /* =================================
+           SUPPORT
+        ================================= */
 
         #support {
             background: #f3e9e7;
@@ -463,19 +490,6 @@
             cursor: wait;
         }
 
-        footer {
-            background: #fff;
-            color: #777;
-            border-top: 1px solid #eadfdd;
-            text-align: center;
-            padding: 28px 20px;
-            font-size: .8rem;
-        }
-
-        footer strong {
-            color: #181818;
-        }
-
         .pledge-status {
             display: none;
             margin-top: 15px;
@@ -502,7 +516,25 @@
             border-color: #e7b5b5;
         }
 
+        footer {
+            background: #fff;
+            color: #777;
+            border-top: 1px solid #eadfdd;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .8rem;
+        }
+
+        footer strong {
+            color: #181818;
+        }
+
+        /* =================================
+           RESPONSIVE
+        ================================= */
+
         @media (max-width: 850px) {
+
             .support-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -522,6 +554,7 @@
         }
 
         @media (max-width: 650px) {
+
             .countdown-bar {
                 padding: 10px 10px 60px;
             }
@@ -620,6 +653,7 @@
         }
 
         @media (max-width: 430px) {
+
             .time-box {
                 min-width: 40px;
             }
@@ -639,9 +673,16 @@
     </style>
 </head>
 
+
 <body>
 
+
+    <!-- =================================
+         COUNTDOWN
+    ================================== -->
+
     <div class="countdown-bar">
+
         <div class="countdown-content">
 
             <div class="countdown-label">
@@ -677,13 +718,19 @@
                 </div>
 
             </div>
+
         </div>
 
         <a href="#support" class="donate-button">
             Donate
         </a>
+
     </div>
 
+
+    <!-- =================================
+         HERO
+    ================================== -->
 
     <header>
 
@@ -728,10 +775,15 @@
                 </a>
 
             </div>
+
         </div>
 
     </header>
 
+
+    <!-- =================================
+         SISTERS
+    ================================== -->
 
     <section id="sisters">
 
@@ -757,163 +809,131 @@
 
             <div class="sisters-grid">
 
-                <article class="sister-card">
 
-    <div class="sister-photo">
+                <!-- ZARIA-LEIGH -->
 
-        <a
-            href="zaria-leigh.html"
-            style="
-                display:block;
-                width:100%;
-                height:100%;
-            "
-        >
-            <img
-                src="images/zaria-leigh.jpg"
-                alt="Zaria-Leigh"
-                style="
-                    width:100%;
-                    height:100%;
-                    object-fit:cover;
-                    display:block;
-                "
-                onerror="
-                    this.style.display='none';
-                    this.parentElement.style.display='none';
-                    this.parentElement.nextElementSibling.style.display='block';
-                "
-            >
-        </a>
-
-        <div
-            class="photo-placeholder"
-            style="display:none;"
-        >
-            Zaria-Leigh Photo
-        </div>
-
-    </div>
-
-    <div class="sister-info">
-
-        <h3>Zaria-Leigh</h3>
-
-        <p>
-            Bold, energetic and full of personality.
-            Zaria-Leigh began gymnastics at age five
-            and loves to dance.
-        </p>
-
-        <a
-            href="zaria-leigh.html"
-            style="
-                display:inline-block;
-                margin-top:15px;
-                color:#c91f2c;
-                text-decoration:none;
-                font-size:.75rem;
-                font-weight:900;
-                text-transform:uppercase;
-                letter-spacing:1px;
-            "
-        >
-            Meet Zaria →
-        </a>
-
-    </div>
-
-<article class="sister-card">
-
-    <div class="sister-photo">
-
-        <a
-            href="zhavia-leigh.html"
-            style="display:block; width:100%; height:100%;"
-        >
-            <img
-                src="images/zhavia-leigh.jpg"
-                alt="Zhavia-Leigh"
-                style="
-                    width:100%;
-                    height:100%;
-                    object-fit:cover;
-                    display:block;
-                "
-            >
-        </a>
-
-    </div>
-
-    <div class="sister-info">
-
-        <h3>Zhavia-Leigh</h3>
-
-        <p>
-            Precise, focused and eager to learn.
-            Zhavia-Leigh began gymnastics at age five
-            and has qualified for the Level 1 National Team
-            for CARIFTA 2026.
-        </p>
-
-        <a
-            href="zhavia-leigh.html"
-            style="
-                display:inline-block;
-                margin-top:15px;
-                color:#c91f2c;
-                text-decoration:none;
-                font-size:.75rem;
-                font-weight:900;
-                text-transform:uppercase;
-                letter-spacing:1px;
-            "
-        >
-            Meet Zhavia →
-        </a>
-
-    </div>
-
-</article>
                 <article class="sister-card">
 
                     <div class="sister-photo">
 
-                        <img
-                            src="images/keira-leigh.jpg"
-                            alt="Keira-Leigh"
-                            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                        >
-
-                        <div
-                            class="photo-placeholder"
-                            style="display:none;"
-                        >
-                            Keira-Leigh Photo
-                        </div>
+                        <a href="zaria-leigh.html">
+                            <img
+                                src="images/zaria-leigh.jpg"
+                                alt="Zaria-Leigh"
+                            >
+                        </a>
 
                     </div>
 
                     <div class="sister-info">
 
                         <h3>
-                            Keira-Leigh
+                            Zaria-Leigh
                         </h3>
 
                         <p>
-                            Add Keira-Leigh's gymnastics story,
-                            achievements and personal journey here.
+                            Bold, energetic and full of personality.
+                            Zaria-Leigh began gymnastics at age five
+                            and loves to dance.
                         </p>
+
+                        <a
+                            href="zaria-leigh.html"
+                            class="sister-profile-link"
+                        >
+                            Meet Zaria →
+                        </a>
 
                     </div>
 
                 </article>
 
+
+                <!-- ZHAVIA-LEIGH -->
+
+                <article class="sister-card">
+
+                    <div class="sister-photo">
+
+                        <a href="zhavia-leigh.html">
+                            <img
+                                src="images/zhavia-leigh.jpg"
+                                alt="Zhavia-Leigh"
+                            >
+                        </a>
+
+                    </div>
+
+                    <div class="sister-info">
+
+                        <h3>
+                            Zhavia-Leigh
+                        </h3>
+
+                        <p>
+                            Precise, focused and eager to learn.
+                            Zhavia-Leigh began gymnastics at age five
+                            and has qualified for the Level 1 National Team
+                            for CARIFTA 2026.
+                        </p>
+
+                        <a
+                            href="zhavia-leigh.html"
+                            class="sister-profile-link"
+                        >
+                            Meet Zhavia →
+                        </a>
+
+                    </div>
+
+               <!-- KEIRA-LEIGH -->
+
+<article class="sister-card">
+
+    <div class="sister-photo">
+
+        <a href="keira-leigh.html">
+            <img
+                src="images/keira-leigh.jpg"
+                alt="Keira-Leigh"
+            >
+        </a>
+
+    </div>
+
+    <div class="sister-info">
+
+        <h3>
+            Keira-Leigh
+        </h3>
+
+        <p>
+            Dynamic, disciplined and driven by a love for gymnastics.
+            Keira-Leigh began gymnastics at age six and now competes
+            at Level 6 for Trinidad &amp; Tobago.
+        </p>
+
+        <a
+            href="keira-leigh.html"
+            class="sister-profile-link"
+        >
+            Meet Keira →
+        </a>
+
+    </div>
+
+</article>
+
             </div>
+
         </div>
 
     </section>
 
+
+    <!-- =================================
+         SUPPORT
+    ================================== -->
 
     <section id="support">
 
@@ -1078,10 +1098,15 @@
                 </div>
 
             </div>
+
         </div>
 
     </section>
 
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
 
     <footer>
 
@@ -1136,10 +1161,6 @@
         =========================================================
         SUCCESS
         =========================================================
-
-        Once the hidden iframe receives the response from
-        Google Apps Script, the visitor is sent to our own
-        thank-you page.
         */
 
         function finishPledgeSubmission() {
@@ -1148,27 +1169,18 @@
                 return;
             }
 
-
             pledgeCompleted = true;
 
             clearTimeout(pledgeTimeout);
 
-
             pledgeForm.reset();
-
 
             submitPledgeButton.disabled = false;
 
             submitPledgeButton.textContent =
                 "Submit My Pledge";
 
-
             isSubmittingPledge = false;
-
-
-            /*
-            Redirect to our custom thank-you page.
-            */
 
             window.location.href = "thank-you.html";
 
@@ -1187,23 +1199,19 @@
                 return;
             }
 
-
             pledgeCompleted = true;
 
             clearTimeout(pledgeTimeout);
-
 
             showPledgeStatus(
                 "We couldn't confirm the submission. Please try again or contact the Leigh Sisters directly.",
                 "error"
             );
 
-
             submitPledgeButton.disabled = false;
 
             submitPledgeButton.textContent =
                 "Submit My Pledge";
-
 
             isSubmittingPledge = false;
 
@@ -1227,7 +1235,6 @@
                     return;
                 }
 
-
                 if (event.data.status === "success") {
 
                     finishPledgeSubmission();
@@ -1246,10 +1253,6 @@
         =========================================================
         HIDDEN IFRAME RESPONSE
         =========================================================
-
-        This is what allows your existing Google Apps Script
-        submission to continue working without taking the
-        visitor away from the website.
         */
 
         pledgeResponseFrame.addEventListener(
@@ -1262,7 +1265,6 @@
                 ) {
                     return;
                 }
-
 
                 finishPledgeSubmission();
 
@@ -1284,18 +1286,15 @@
 
                 pledgeCompleted = false;
 
-
                 submitPledgeButton.disabled = true;
 
                 submitPledgeButton.textContent =
                     "Submitting...";
 
-
                 showPledgeStatus(
                     "Submitting your pledge...",
                     "submitting"
                 );
-
 
                 pledgeTimeout =
                     setTimeout(
@@ -1398,14 +1397,11 @@
             document.getElementById("days").textContent =
                 String(days).padStart(2, "0");
 
-
             document.getElementById("hours").textContent =
                 String(hours).padStart(2, "0");
 
-
             document.getElementById("minutes").textContent =
                 String(minutes).padStart(2, "0");
-
 
             document.getElementById("seconds").textContent =
                 String(seconds).padStart(2, "0");
