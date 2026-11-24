@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGU 2026 | The Leigh Sisters</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            background: #fbf8f7;
+            color: #181818;
+            line-height: 1.6;
+        }
+        .top-banner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 20px;
+            background: #fff;
+            border-bottom: 3px solid #c91f2c;
+            text-align: center;
+        }
+        .top-banner a {
+            color: #c91f2c;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-size: .78rem;
+            font-weight: 800;
+        }
+        header {
+            padding: 70px 20px 75px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 75% 25%, rgba(201,31,44,.15), transparent 35%),
+                linear-gradient(135deg, #fffaf8 0%, #f6ecea 52%, #eee3e0 100%);
+        }
+        .brand {
+            font-family: "Brush Script MT", "Segoe Script", cursive;
+            color: #c91f2c;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+        .eyebrow {
+            color: #c91f2c;
+            font-size: .72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        h1, h2 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+        h1 span { color: #c91f2c; font-style: italic; }
+        .intro {
+            max-width: 700px;
+            margin: 20px auto 0;
+            color: #666;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .nav-buttons a, .back-link {
+            display: inline-block;
+            padding: 12px 24px;
+            border: 1px solid #b9aaa7;
+            border-radius: 30px;
+            color: #3c3432;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: .75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: all .25s ease;
+        }
+        .nav-buttons a:first-child {
+            background: #c91f2c;
+            color: #fff;
+            border-color: #c91f2c;
+        }
+        .nav-buttons a:hover, .back-link:hover {
+            background: #181818;
+            color: #fff;
+            border-color: #181818;
+        }
+        section { padding: 78px 20px; }
+        .section-inner { max-width: 1050px; margin: auto; }
+        .section-heading { text-align: center; margin-bottom: 42px; }
+        .section-heading .eyebrow { margin-bottom: 8px; }
+        h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+        .section-heading p {
+            max-width: 690px;
+            margin: 14px auto 0;
+            color: #707070;
+        }
+        #sponsors { background: #fff; }
+        .thank-you {
+            max-width: 800px;
+            margin: 0 auto 42px;
+            padding: 30px;
+            border-radius: 18px;
+            background: #f3e9e7;
+            text-align: center;
+        }
+        .thank-you h3 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .thank-you p { color: #5f5552; }
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat( auto-fit, minmax(210px, 1fr) );
+            gap: 20px;
+        }
+        .sponsor-card {
+            min-height: 205px;
+            padding: 24px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid #e8dfdd;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,.05);
+        }
+        .sponsor-card img {
+            width: 100%;
+            max-width: 190px;
+            height: 95px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+        .sponsor-card h3 { font-size: 1rem; margin-bottom: 5px; }
+        .sponsor-card p { color: #777; font-size: .86rem; }
+        #results { background: #f3e9e7; }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+            gap: 16px;
+        }
+        .result-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 23px 18px;
+            text-align: center;
+            border-top: 4px solid #c91f2c;
+            box-shadow: 0 8px 25px rgba(0,0,0,.05);
+        }
+        .result-card h3 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            font-size: .8rem;
+        }
+        .score {
+            display: block;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 2.25rem;
+            margin: 8px 0 2px;
+        }
+        .place { color: #c91f2c; font-weight: 800; }
+        .all-around {
+            max-width: 440px;
+            margin: 22px auto 0;
+            background: #181818;
+            color: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        .all-around h3 { text-transform: uppercase; font-size: .8rem; letter-spacing: 1px; color: #ddd; }
+        .all-around .score { font-size: 2.7rem; }
+        #gallery { background: #fff; }
+        .gallery-shell {
+            max-width: 900px;
+            margin: auto;
+            background: #f7f1ef;
+            border-radius: 18px;
+            padding: 20px;
+        }
+        .media-frame {
+            width: 100%;
+            min-height: 300px;
+            aspect-ratio: 16 / 9;
+            background: #e7ddda;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .media-frame img, .media-frame video {
+            width: 100%;
+            height: 100%;
+            max-height: 560px;
+            object-fit: contain;
+            display: block;
+        }
+        .media-placeholder {
+            padding: 30px;
+            color: #6d625f;
+            text-align: center;
+        }
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .gallery-controls button {
+            border: 0;
+            background: #c91f2c;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 22px;
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .gallery-controls button:hover { background: #181818; }
+        #gallery-count { color: #665d5a; font-size: .9rem; }
+        .gallery-note {
+            text-align: center;
+            color: #777;
+            font-size: .84rem;
+            margin-top: 16px;
+        }
+        footer {
+            background: #fff;
+            color: #777;
+            border-top: 1px solid #eadfdd;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: .8rem;
+        }
+        footer strong { color: #181818; }
+        @media (max-width: 600px) {
+            header { padding: 55px 18px 60px; }
+            .nav-buttons { flex-direction: column; max-width: 300px; margin-left: auto; margin-right: auto; }
+            .nav-buttons a { width: 100%; }
+            section { padding: 62px 18px; }
+            .thank-you { padding: 24px 18px; }
+            .gallery-shell { padding: 12px; }
+            .media-frame { min-height: 220px; }
+            .gallery-controls { gap: 10px; }
+            .gallery-controls button { padding: 10px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <a href="index.html">← Back to The Leigh Sisters</a>
+    </div>
+
+    <header>
+        <div class="brand">The Leigh Sisters</div>
+        <div class="eyebrow">PAGU 2026</div>
+        <h1>Keira-Leigh at the <span>Children &amp; Youth Cup</span></h1>
+        <p class="intro">
+            A celebration of dedication, hard work and the support that helped make this journey possible.
+            Thank you for following Keira-Leigh’s PAGU 2026 experience.
+        </p>
+        <nav class="nav-buttons" aria-label="PAGU page sections">
+            <a href="#sponsors">Sponsors</a>
+            <a href="#results">Results</a>
+            <a href="#gallery">Photos and Videos</a>
+        </nav>
+    </header>
+
+    <section id="sponsors">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div class="eyebrow">With heartfelt appreciation</div>
+                <h2>Thank You to Our Sponsors</h2>
+            </div>
+            <div class="thank-you">
+                <h3>This journey would not have been possible without you.</h3>
+                <p>
+                    Every contribution, every word of encouragement and every act of support helped
+                    bring this opportunity within reach. Your generosity helped Keira-Leigh represent
+                    Trinidad &amp; Tobago on the international stage and create memories that will last
+                    a lifetime. We are deeply grateful to each organisation that believed in her,
+                    supported her dream and became part of this journey. Thank you for standing with us.
+                </p>
+            </div>
+
+            <div class="sponsor-grid">
+                <article class="sponsor-card">
+                    <img src="sponsorlogos/dbf.png" alt="Dwayne Bravo Foundation logo">
+                    <h3>Dwayne Bravo Foundation</h3>
+                    <p>With sincere appreciation for helping make this opportunity possible.</p>
+                </article>
+                <article class="sponsor-card">
+                    <img src="sponsorlogos/gloc.png" alt="Guardian Life of the Caribbean logo">
+                    <h3>Guardian Life of the Caribbean</h3>
+                    <p>Thank you for investing in Keira-Leigh’s journey and supporting her goals.</p>
+                </article>
+                <article class="sponsor-card">
+                    <img src="sponsorlogos/poselc.png" alt="POS East Lions Club logo">
+                    <h3>POS East Lions Club</h3>
+                    <p>Grateful for your generosity, encouragement and community support.</p>
+                </article>
+                <article class="sponsor-card">
+                    <img src="sponsorlogos/btps.png" alt="Benefit the People Supermarket logo">
+                    <h3>Benefit the People Supermarket</h3>
+                    <p>Thank you for being part of the team behind this achievement.</p>
+                </article>
+                <article class="sponsor-card">
+                    <img src="sponsorlogos/cpsl.png" alt="Commercial Protective Services Limited logo">
+                    <h3>Commercial Protective Services Limited</h3>
+                    <p>With heartfelt thanks for helping Keira-Leigh take this important step.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="results">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div class="eyebrow">PAGU 2026</div>
+                <h2>Competition Results</h2>
+                <p>Keira-Leigh’s results from the Children &amp; Youth Cup for Artistic Gymnastics.</p>
+            </div>
+            <div class="results-grid">
+                <article class="result-card">
+                    <h3>Bars</h3>
+                    <span class="score">11.25</span>
+                    <div class="place">10th Place</div>
+                </article>
+                <article class="result-card">
+                    <h3>Vault</h3>
+                    <span class="score">12.1</span>
+                    <div class="place">22nd Place</div>
+                </article>
+                <article class="result-card">
+                    <h3>Beam</h3>
+                    <span class="score">9.4</span>
+                    <div class="place">31st Place</div>
+                </article>
+                <article class="result-card">
+                    <h3>Floor</h3>
+                    <span class="score">10.3</span>
+                    <div class="place">22nd Place</div>
+                </article>
+            </div>
+            <div class="all-around">
+                <h3>All Around</h3>
+                <span class="score">43.05</span>
+                <div class="place">18th Place</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div class="eyebrow">The memories</div>
+                <h2>Photos and Videos</h2>
+                <p>Moments from Keira-Leigh’s PAGU 2026 journey.</p>
+            </div>
+            <div class="gallery-shell">
+                <div class="media-frame" id="media-frame">
+                    <div class="media-placeholder">
+                        Add your photos and videos to the <strong>pagu2026</strong> folder,
+                        then list their filenames in the gallery array in this page’s script.
+                    </div>
+                </div>
+                <div class="gallery-controls">
+                    <button type="button" id="previous-media" aria-label="Previous photo or video">‹ Previous</button>
+                    <span id="gallery-count">0 / 0</span>
+                    <button type="button" id="next-media" aria-label="Next photo or video">Next ›</button>
+                </div>
+                <p class="gallery-note">Photos and videos will play or display here as you move through the carousel.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>The Leigh Sisters</strong> &nbsp; | &nbsp; PAGU Children &amp; Youth Cup 2026</p>
+    </footer>
+
+    <script>
+        /*
+         * Add the filenames of your media to this list.
+         * Place the files in a folder named "pagu2026" beside this HTML file.
+         * Examples:
+         * { type: "image", src: "pagu2026/beam.jpg", alt: "Keira-Leigh on beam" }
+         * { type: "video", src: "pagu2026/floor-routine.mp4", alt: "Floor routine" }
+         */
+        const gallery = [
+            // Add your photos and videos here.
+        ];
+
+        let currentIndex = 0;
+        const mediaFrame = document.getElementById("media-frame");
+        const galleryCount = document.getElementById("gallery-count");
+
+        function showMedia(index) {
+            if (!gallery.length) {
+                mediaFrame.innerHTML = '<div class="media-placeholder">Your photos and videos will appear here once you add their filenames to the gallery list in this HTML file.</div>';
+                galleryCount.textContent = "0 / 0";
+                return;
+            }
+
+            currentIndex = (index + gallery.length) % gallery.length;
+            const item = gallery[currentIndex];
+            mediaFrame.innerHTML = "";
+
+            let media;
+            if (item.type === "video") {
+                media = document.createElement("video");
+                media.controls = true;
+                media.playsInline = true;
+                media.preload = "metadata";
+            } else {
+                media = document.createElement("img");
+                media.alt = item.alt || "PAGU 2026 gallery photo";
+            }
+            media.src = item.src;
+            mediaFrame.appendChild(media);
+            galleryCount.textContent = `${currentIndex + 1} / ${gallery.length}`;
+        }
+
+        document.getElementById("previous-media").addEventListener("click", () => showMedia(currentIndex - 1));
+        document.getElementById("next-media").addEventListener("click", () => showMedia(currentIndex + 1));
+        showMedia(0);
+    </script>
+</body>
+</html>
